@@ -38,6 +38,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN groupadd -g 1000 www
 RUN useradd -u 1000 -ms /bin/bash -g www www
 
+RUN chown -R www-data:www-data /var/www
 # Copy existing application directory contents
 COPY . /var/www
 
@@ -47,7 +48,7 @@ COPY --chown=www:www . /var/www
 # Change current user to www
 USER www
 
-RUN composer install --no-scripts --no-autoloader
+#RUN composer install --no-scripts --no-autoloader
 
 # Expose port 9000 and start php-fpm server
 EXPOSE 9000
