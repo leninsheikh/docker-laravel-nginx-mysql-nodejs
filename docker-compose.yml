@@ -41,7 +41,7 @@ services:
       - common_network
 
   #Node Service
-  common_node_alp:
+  common_node_alpine:
     image: node:alpine
     container_name: common_node_alp
     restart: unless-stopped
